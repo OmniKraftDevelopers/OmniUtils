@@ -1,0 +1,9 @@
+name: OmniUtils
+main: me.killerkoda13.OmniUtils.Main
+version: 0.0.1
+description: OmniKraft Utilities package. Made by Killerkoda13(Alex Jones)
+commands:
+   OmniUtils:
+      description: Base command for OmniUtilities plugin.
+      usage: /<command>
+
