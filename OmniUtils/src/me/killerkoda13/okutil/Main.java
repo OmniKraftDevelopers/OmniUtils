@@ -1,4 +1,6 @@
-package src.me.killerkoda13.OmniUtils;
+package me.killerkoda13.okutil;
+
+import me.killerkoda13.okutil.Utilities.WorldUtils;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -24,8 +26,8 @@ public class Main extends JavaPlugin{
 
 		if(cmd.getName().equalsIgnoreCase("omniutils"))
 		{
-
+			WorldUtils.getEntitiesByChunk();
 		}
-		return false;
+		return true;
 	}
 }
