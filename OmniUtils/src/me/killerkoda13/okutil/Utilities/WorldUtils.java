@@ -7,7 +7,9 @@ import java.util.UUID;
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
 import org.bukkit.World;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 /***
  *		---------------------------------
@@ -35,13 +37,9 @@ public class WorldUtils {
 		return Bukkit.getWorld(UUID.fromString(uuid));
 	}
 	
-	public static void getEntitiesByChunk()
+	public static void getEntitiesByChunk(World world,int check, Player player)
 	{
-		int amount = Bukkit.getWorld("world").getEntities().size();
-	
-		Entity cached = null;
-		boolean run = false;
-		for(Entity e : Bukkit.getWorld("world").getEntities())
+		for(Entity e : world.getEntities())
 		{
 			if(WorldUtils.Entities.containsKey(e.getLocation().getChunk()))
 			{
@@ -57,11 +55,14 @@ public class WorldUtils {
 			}
 			
 		}
+		
 		for(Chunk c : WorldUtils.Entities.keySet())
-		{
-			if(WorldUtils.Entities.get(c).size() > 50)
+		{	
+
+				
+			if(WorldUtils.Entities.get(c).size() > check)
 			{
-				System.out.println("X:"+c.getX()+" Z:"+c.getZ());
+				player.sendMessage("X:"+c.getEntities()[0].getLocation().getBlockX()+" Y: "+c.getEntities()[0].getLocation().getBlockY()+" Z:"+c.getEntities()[0].getLocation().getBlockZ());
 			}
 		}
 	}
