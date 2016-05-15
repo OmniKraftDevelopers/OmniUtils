@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -60,9 +61,12 @@ public class WorldUtils {
 		{	
 
 				
-			if(WorldUtils.Entities.get(c).size() > check)
+			if(WorldUtils.Entities.get(c).size() >= check)
 			{
-				player.sendMessage("X:"+c.getEntities()[0].getLocation().getBlockX()+" Y: "+c.getEntities()[0].getLocation().getBlockY()+" Z:"+c.getEntities()[0].getLocation().getBlockZ());
+				player.sendMessage("X:"+c.getEntities()[0].getLocation().getBlockX()+" Y: "+c.getEntities()[0].getLocation().getBlockY()+" Z:"+c.getEntities()[0].getLocation().getBlockZ() + " e: "+WorldUtils.Entities.get(c).size());
+			}else
+			{
+				player.sendMessage(ChatColor.RED+"No amount higher found.");
 			}
 		}
 	}

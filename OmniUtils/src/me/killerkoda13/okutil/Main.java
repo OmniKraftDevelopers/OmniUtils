@@ -2,6 +2,7 @@ package me.killerkoda13.okutil;
 
 import me.killerkoda13.okutil.Utilities.WorldUtils;
 
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -12,6 +13,7 @@ public class Main extends JavaPlugin{
 	@Override
 	public void onEnable()
 	{
+
 	}
 
 	@Override
@@ -26,20 +28,20 @@ public class Main extends JavaPlugin{
 		Player player = (Player) sender;
 		if(cmd.getName().equalsIgnoreCase("okutils"))
 		{
-			if(args[0].equalsIgnoreCase("ef") || args[0].equalsIgnoreCase("entityfinder"))
+			if(player.hasPermission("okutils.entityfinder"))
 			{
-				if(args[1] != null)
+				if(args[0].equalsIgnoreCase("ef") || args[0].equalsIgnoreCase("entityfinder"))
 				{
-					int check = Integer.parseInt(args[1]);
-					WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
+					if(args[1] != null)
+					{
+						int check = Integer.parseInt(args[1]);
+						WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
 
-				}else
-				{
-				WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
+					}else
+					{
+						WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
+					}
 				}
-			}else if(args[0].equalsIgnoreCase("surv"))
-			{
-				
 			}
 		}
 		return true;
