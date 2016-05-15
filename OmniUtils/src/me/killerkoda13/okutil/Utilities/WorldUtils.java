@@ -64,9 +64,6 @@ public class WorldUtils {
 			if(WorldUtils.Entities.get(c).size() >= check)
 			{
 				player.sendMessage("X:"+c.getEntities()[0].getLocation().getBlockX()+" Y: "+c.getEntities()[0].getLocation().getBlockY()+" Z:"+c.getEntities()[0].getLocation().getBlockZ() + " e: "+WorldUtils.Entities.get(c).size());
-			}else
-			{
-				player.sendMessage(ChatColor.RED+"No amount higher found.");
 			}
 		}
 	}
