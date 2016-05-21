@@ -8,3 +8,4 @@ Forked here to keep organized.
 - [ ] Entity finder (Gather info on where all entities are to locate potential lag sources)
 - [ ] /surv and /spec (Persistant through worlds) May require MV dependancy
 - [ ] Anti force op - JSON exploit
+- [ ] Memory leak detection 
