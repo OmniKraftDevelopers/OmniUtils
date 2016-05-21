@@ -6,3 +6,6 @@ commands:
    okutils:
       description: Base command for OmniUtilities plugin.
       usage: /<command>
+   lag:
+      description: check ms ping to server
+      usage: /<command>
