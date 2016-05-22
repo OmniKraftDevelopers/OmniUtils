@@ -36,18 +36,13 @@ public class Main extends JavaPlugin{
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		Player player = (Player) sender;
-		if(cmd.getName().equalsIgnoreCase("okutils"))
-		{
-			if(player.hasPermission(entityfinder))
-			{
-				if(args[0].equalsIgnoreCase("ef") || args[0].equalsIgnoreCase("entityfinder"))
-				{
-					if(args[1] != null)
-					{
-						WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
-					}else
-					{
-						WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
+        if (cmd.getName().equalsIgnoreCase("okutils")) {
+            if (player.hasPermission(entityfinder)) {
+                if (args[0].equalsIgnoreCase("ef") || args[0].equalsIgnoreCase("entityfinder")) {
+                    if (args[1] != null) {
+                        WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
+                    } else {
+                        WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
 					}
 				}
 			}
