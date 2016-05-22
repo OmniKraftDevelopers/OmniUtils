@@ -44,9 +44,7 @@ public class Main extends JavaPlugin{
 				{
 					if(args[1] != null)
 					{
-						int check = Integer.parseInt(args[1]);
 						WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
-
 					}else
 					{
 						WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
