@@ -39,24 +39,28 @@ public class Main extends JavaPlugin{
         if (cmd.getName().equalsIgnoreCase("okutils")) {
             if (player.hasPermission(entityfinder)) {
                 if (args[0].equalsIgnoreCase("ef") || args[0].equalsIgnoreCase("entityfinder")) {
-                    if (args[1] != null) {
+                    if (args.length > 1) {
                         WorldUtils.getEntitiesByChunk(player.getWorld(), Integer.parseInt(args[1]), player);
                     } else {
                         WorldUtils.getEntitiesByChunk(player.getWorld(), 50, player);
 					}
 				}
-			}
+            } else {
+                player.sendMessage(ChatColor.RED + "You do not have permission to this command");
+            }
         } else if (cmd.getName().equalsIgnoreCase("lag")) {
             if (args.length == 1) {
                 if (player.hasPermission(lagother)) {
-                    if (getServer().getPlayer(args[1]) != null) {
-                        Player other = Bukkit.getPlayer(args[1]);
+                    if (getServer().getPlayer(args[0]) != null) {
+                        Player other = Bukkit.getPlayer(args[0]);
                         CraftPlayer cp = (CraftPlayer) other;
                         player.sendMessage(ChatColor.GRAY + "Ping profile for " + other.getName());
                         player.sendMessage("Ping: " + cp.getHandle().ping);
                     } else {
                         player.sendMessage(ChatColor.RED + "Player " + args[1].toUpperCase() + " is not currently online.");
                     }
+                } else {
+                    player.sendMessage(ChatColor.RED + "You do not have permission to this command");
                 }
             } else {
                 if (player.hasPermission(lag)) {
@@ -65,6 +69,8 @@ public class Main extends JavaPlugin{
 
                     player.sendMessage(ChatColor.GRAY + "Ping profile");
                     player.sendMessage("Ping: " + ping);
+                } else {
+                    player.sendMessage(ChatColor.RED + "You do not have permission to this command");
                 }
             }
         }

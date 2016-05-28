@@ -19,10 +19,10 @@ import org.bukkit.entity.Player;
  *		---------------------------------
  */
 public class WorldUtils {
-	
-	
+
 	public static HashMap<Chunk, ArrayList<Entity>> Entities = new HashMap<Chunk, ArrayList<Entity>>();
-	
+	static boolean run = false;
+
 	public static World fromName(String name)
 	{
 		return Bukkit.getWorld(name);
@@ -40,16 +40,20 @@ public class WorldUtils {
 	
 	public static void getEntitiesByChunk(World world,int check, Player player)
 	{
+		ArrayList<Entity> ents = new ArrayList<Entity>();
+		ents.clear();
+		run = false;
+		WorldUtils.Entities.clear();
 		for(Entity e : world.getEntities())
 		{
 			if(WorldUtils.Entities.containsKey(e.getLocation().getChunk()))
 			{
-				ArrayList<Entity> ents = WorldUtils.Entities.get(e.getLocation().getChunk());
-				ents.add(e);
-				WorldUtils.Entities.put(e.getLocation().getChunk(),ents);	
+				ArrayList<Entity> ents2 = WorldUtils.Entities.get(e.getLocation().getChunk());
+
+				ents2.add(e);
+				WorldUtils.Entities.put(e.getLocation().getChunk(), ents2);
 			}else
 			{
-				ArrayList<Entity> ents = new ArrayList<Entity>();
 				ents.add(e);
 				WorldUtils.Entities.put(e.getLocation().getChunk(), ents);
 			}
@@ -59,8 +63,12 @@ public class WorldUtils {
 		{		
 			if(WorldUtils.Entities.get(c).size() >= check)
 			{
-				player.sendMessage("X:"+c.getEntities()[0].getLocation().getBlockX()+" Y: "+c.getEntities()[0].getLocation().getBlockY()+" Z:"+c.getEntities()[0].getLocation().getBlockZ() + " e: "+WorldUtils.Entities.get(c).size());
+				player.sendMessage("X: " + c.getEntities()[0].getLocation().getBlockX() + " Y: " + c.getEntities()[0].getLocation().getBlockY() + " Z: " + c.getEntities()[0].getLocation().getBlockZ() + " e: " + WorldUtils.Entities.get(c).size());
+				run = true;
 			}
+		}
+		if (run == false) {
+			player.sendMessage(ChatColor.RED + "No entities of this amount found.");
 		}
 	}
 	
