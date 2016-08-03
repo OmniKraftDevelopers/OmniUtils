@@ -9,8 +9,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.World;
-import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 /***
@@ -21,7 +19,6 @@ import org.bukkit.entity.Player;
  */
 public class WorldUtils {
 
-	public static HashMap<Chunk, ArrayList<Entity>> Entities = new HashMap<Chunk, ArrayList<Entity>>();
 	static boolean run = false;
 
 	public static World fromName(String name)

@@ -7,7 +7,7 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
+import org.bukkit.craftbukkit.v1_10_R1.entity.*;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
