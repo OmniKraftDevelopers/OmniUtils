@@ -58,6 +58,10 @@ public class Main extends JavaPlugin{
                             Player other = Bukkit.getPlayer(args[0]);
                             CraftPlayer cp = (CraftPlayer) other;
                             player.sendMessage(ChatColor.GRAY + "Ping profile for " + other.getName());
+                            int ping = cp.getHandle().ping;
+                            if(ping <= 80)
+                            {
+                            }
                             player.sendMessage("Ping: " + cp.getHandle().ping);
                         } else {
                             player.sendMessage(ChatColor.RED + "Player " + args[1].toUpperCase() + " is not currently online.");
